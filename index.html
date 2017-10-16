@@ -1,575 +1,96 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE HTML>
+<!--
+	Ethereal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 	<head>
-		<meta charset="utf-8">
-
-		<title>Database Handling in Python</title>
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
-
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+		<title>Hello,Fian</title>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/png" href="images/fav.png"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-
 	<body>
 
-		<div class="reveal">
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<!-- 1 -->
-				<section>
-					<h2>Database Handling</h2>
-					<h3>Using Python & Pyside (Qt) As Gui</h3>
-					<p>
-						<small>By : <a target="_blank" href="http://twitter.com/fian_io">@fian_io</a></small>
-					</p>
-				</section>
-				<!-- 2 -->
-				<section data-transition="zoom">
-						<h2>Whats ?</h2>
-						<ul>
-							<li>Make Simple Crud</li>
-							<li>Mysql ?</li>
-							<li><a href="https://github.com/PyMySQL/mysqlclient-python">Plugin For Linux</a></li>
-							<li>Handling Database</li>
-							<li>Work In Objet</li>
-						</ul>
-				</section>
-				<!-- 3 -->
-				<section data-transition="slide">
-						<h2>Todo First ?</h2>
-						<ul>
-							<li>Fill Some Data First</li>
-							<li>Open Yur Code Editor</li>
-							<li>New Database and Table</li>
-							<li>Fill Some Data First</li>
-						</ul>
-				</section>
-				<!-- 4 -->
-				<section>
-					<h2>Make ur own main first</h2>
-					<p>
-						Use Tabs view is good idea for onepage CRUD
-					</p>
-				</section>
+				<!-- Wrapper -->
+					<div id="wrapper">
+						<!-- Panel (Banner) -->
+							<section class="panel banner right">
+								<div class="content color0 span-3-75">
+									<h1 class="major">Hello,<br />
+									Fian Eka</h1>
+									<p>Seorang Pemuda Yang Punya Cita Cita, Suka Dengan It, Sesekali Mendalami Machine Learning. Fall In Love with Js</p>
+									<ul class="actions">
+										<li><a href="#first" class="button special color1 circle icon fa-angle-right">Next</a></li>
+									</ul>
+								</div>
+								<div class="image filtered span-1-75" data-position="25% 25%">
+									<img src="images/ww.jpg" alt="" />
+								</div>
+							</section>
 
-				<!-- Slide 1 5 -->
-				<section data-transition="slide">
-					<section>
-						<h2>First Thing #1</h2>
-						<p>Navigate Down - Follow The Step</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h3>Create env.py File</h3>
-						<p>Create ur detail environment for your server</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							connection = {
-								'host': 'localhost',
-								'user': 'root',
-								'password': '',
-								'database': 'pyDB',
-								'port': 3306
-							}
-						</code></pre>
-					</section>
-					<section>
-						<h3>Create The Connection File </h3>
-						<p>That's it, time to listen your own server, <b>connect.py</b> <i>first import the require module</i></p>
-						<pre><code class="hljs" data-trim contenteditable>
-							import sys
-							from env import connection
-							from PySide.QtSql import *
-						</code></pre>
-					</section>
-					<section>
-						<h3>Class Is Up</h3>
-						<p>That's it, build ur own connection with env detail</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							class Connection ():
-							    def __init__(self):
-							         self.db = QSqlDatabase.addDatabase("QMYSQL")
-							         self.db.setHostName(connection['host'])
-							         self.db.setDatabaseName(connection['database'])
-							         self.db.setUserName(connection['user'])
-							         self.db.setPassword(connection['password'])
-							         ok = self.db.open()
-						</code></pre>
-						<p><small><b><a href="#">would be very tasty if use the try and catch</a></b></small></p>
-					</section>
-					<section>
-						<h3>Easy With File Handler</h3>
-						<p>easy is optional - so create the <b>handler.py</b></p>
-						<img src="css/hddl.png" alt="">
-					</section>
-					<section>
-						<h3>Handler Class Is Up</h3>
-						<p>Todo Some Beautifull Method</p>
-						<small><i>Import Module</i></small>
-						<pre><code class="hljs" data-trim contenteditable>
-							import sys
-							from PySide.QtSql import *
-							from connect import Connection
-						</code></pre>
-						<small><i>Up The Class File</i></small>
-						<pre><code class="hljs" data-trim contenteditable>
-							class dbHandler(object):
-							    """docstring for dbHandler."""
-							    def __init__(self):
-							        super(dbHandler, self).__init__()
-							        self.db = Connection()
-						</code></pre>
-					</section>
-					<section>
-						<h2><a href="#">Try Now ! Is nice connection?</a></h2>
-					</section>
-					<section data-background="css/nice.gif">
-						<h2>Nice Work Dude!</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/5">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+						<!-- Panel (Spotlight) -->
+							<section class="panel spotlight medium right" id="first">
+								<div class="content span-7">
+									<h2 class="major">Current Work</h2>
+									<p>Sedang mengerjakan project - project Web. dan sedang mendalami Machine Learning, Artificial Intelligence, karena tertarik dengan teknologi teknologi baru.</p>
+									<h2 class="major">On Fire With</h2>
+									<p><img src="images/salti.png" alt=""></p>
+								</div>
+								<div class="image filtered tinted" data-position="top left">
+									<img src="images/bg1.jpg" alt="" />
+								</div>
+							</section>
 
-				<!-- Silde 2 6 -->
-				<section data-transition="convex">
-					<section>
-						<h3>Retrieve Data ?</h3>
-						<ul>
-							<li>Populate To Table is the nice one</li>
-							<li>do connection and create some method and BOOM!</li>
-						</ul>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h3>Create View First</h3>
-						<p>separate to another folder why not? u love simple right?</p>
-						<p>create the <b>show.py</b></p>
-					</section>
-					<section>
-						<h3>Show.py</h3>
-						<p>require another module</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							import sys
-							from PySide.QtGui import *
-							from PySide.QtCore import *
-							from connect import Connection
-							from handler import dbHandler
-							dbHandler = dbHandler()
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Show.py</h3>
-						<p>set ur ui Unit</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def __init__(self, parent=None):
-						     super(Show, self).__init__(parent)
-						     self.initUI()
+							<section class="panel color2-alt">
+								<div class="intro color2">
+									<h2 class="major">Presentation</h2>
+									<p>Feel Free To Share</p>
+									<h4>List</h4>
+									<ul class="alt">
+										<li><a href="https://fianekame.github.io/PresentPyside/#/">DB Handling Pyside</a></li>
+										<li><a href="#">Laravel juga Laraku</a></li>
+										<li><a href="#">Vue ? Why Not</a></li>
+									</ul>
+									<br>
+								</div>
+							</section>
 
-							def initUI(self):
-						     vbox = QVBoxLayout(self)
-						     self.labelUsername = QLabel("Data User (PYDB)")
-						     self.resultsTable = QTableWidget(self)
-						     self.refresh = QPushButton('Refresh', self)
-						     self.refresh.clicked.connect(self.showResult)
-						     vbox.addWidget(self.labelUsername)
-						     vbox.addWidget(self.refresh)
-						     vbox.addWidget(self.resultsTable)
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Handler.py</h3>
-						<p>up some method to retrieve data from ur own server</p>
-						<i>Method Count</i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def countData(self):
-						        query = QSqlQuery()
-						        query.exec_("SELECT COUNT(*) from user")
-						        if (query.next()):
-						            tot = int(query.value(0));
-						        return tot
-						</code></pre>
-					</section>
-					<section>
-						<h3>Handler.py</h3>
-						<i>Method Get All Data </i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def getAllData(self):
-						        query = QSqlQuery()
-						        query.exec_("SELECT id, nama, email FROM user")
-						        result = []
-						        while query.next():
-						            idu = query.value(0)
-						            name = query.value(1)
-						            salary = query.value(2)
-						            result.append([idu,name,salary])
-						        return result
-						</code></pre>
-					</section>
-					<section>
-						<h3>Show.py</h3>
-						<p>Connect ur own buttton listener, retrieve your data using handler</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def showResult(self):
-						        jmldata = dbHandler.countData()
-						        nrows, ncols = jmldata, 2
-						        self.resultsTable.setRowCount(nrows)
-						        self.resultsTable.setColumnCount(ncols)
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Show.py</h3>
-						<p>retrieve all data then populate to table</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def showResult(self):
-							  header = ["username","email"]
-						    for index in range(len(header)):
-						      self.resultsTable.setHorizontalHeaderItem(index, QTableWidgetItem(header[index]))
-						    data = dbHandler.getAllData()
-						      for i in range (nrows):
-						        for j in range (ncols):
-						          item = QTableWidgetItem(data[i][j+1])
-						          self.resultsTable.setItem(i, j, item)
-						</code></pre>
-						<br>
-					</section>
-					<section data-background="css/gf2.gif">
-						<h2>... and Its Work Right?</h2>
-					</section>
-				</section>
-				<!-- Silde 3 7  -->
-				<section data-transition="convex" >
-					<section>
-						<h2>Now, Insert Part</h2>
-						<p>Step in bellow, just take a part, Cheers!</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h3>Create View First</h3>
-						<p>separate to another folder why not? u love simple right?</p>
-						<p>create the <b>insert.py</b></p>
-					</section>
-					<section>
-						<h3>Insert.py</h3>
-						<p>require another module</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							import sys
-							from PySide.QtSql import *
-							from PySide.QtGui import *
-							from PySide.QtCore import *
-							from connect import Connection
-							from handler import dbHandler
-							dbHandler = dbHandler()
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Insert.py</h3>
-						<p>set ur ui Unit</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def __init__(self,parent=None):
-						        super(Create, self).__init__(parent)
-						        self.initUI()
-						  def initUI(self):
-						        formLayout = QFormLayout(self)
-						        self.labelUsername = QLabel("Username")
-						        self.labelEmail = QLabel("Email")
-						        self.txtUsername = QLineEdit()
-						        self.txtEmail = QLineEdit()
-						        self.prosBtn = QPushButton('Proses', self)
-						        formLayout.addRow(self.labelUsername, self.txtUsername)
-						        formLayout.addRow(self.labelEmail, self.txtEmail)
-						        formLayout.addRow("",self.prosBtn)
-						        self.prosBtn.clicked.connect(self.submitForm)
-						        self.setLayout(formLayout)
+						<!-- Panel -->
+							<section class="panel color4-alt">
+								<div class="intro color4">
+									<h2 class="major">Contact</h2>
+									<p>Love To Share Any Thing With You. Cheers!</p>
+									<div class="span-1-5">
+										<ul class="contact-icons color1">
+											<li class="icon fa-twitter"><a href="https://twitter.com/fian_io">twitter.com/fian_io</a></li>
+											<li class="icon fa-medium"><a href="#">fianeka.me@gmail.com</a></li>
+											<li class="icon fa-instagram"><a href="#">@fian.io</a></li>
+										</ul>
+									</div>
+								</div>
+							</section>
 
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Handler.py</h3>
-						<p>up some method to create data , send to own server</p>
-						<i>Method Store</i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def storeData(self,us,em):
-						        query = QSqlQuery()
-						        query.prepare("INSERT INTO user (nama,email) VALUES (:nama, :email)")
-						        query.bindValue(":nama", us)
-						        query.bindValue(":email1", em)
-						        query.exec_()
-						</code></pre>
-					</section>
-					<section>
-						<h3>Insert.py</h3>
-						<p>Connect ur own buttton listener, send to method, let it handler do their job</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def submitFomr(self):
-								dbHandler.storeData(self.txtUsername.text(),self.txtEmail.text())
-						</code></pre>
-						<p>take 2 paramater from the textfield. Cheers</p>
-						<a href="#">In : need more nice view, just cek empty() and block your code with Try catch, do somedialog</a>
-					</section>
-					<section data-background="css/gf1.gif">
-						<h3>... and Cek ur own Server?</h3>
-						<h6>..... another data add?</h6>
-					</section>
-				</section>
-				<!-- Silde 4 8  -->
-				<section data-transition="convex">
-					<section>
-						<h2>Update? Sound Good</h2>
-						<p>Step in bellow, just take a part, Cheers!</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h3>Create View First</h3>
-						<p>separate to another folder why not? u love simple right?</p>
-						<p>create the <b>update.py</b></p>
-					</section>
-					<section>
-						<h3>Update.py</h3>
-						<p>require another module</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							import sys
-							from PySide.QtSql import *
-							from PySide.QtGui import *
-							from PySide.QtCore import *
-							from connect import Connection
-							from handler import dbHandler
-							dbHandler = dbHandler()
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Update.py</h3>
-						<p>Create ur own main view for update UI</p>
-						<p>mind : <a href="updateform.html" target="_blank">Cek out</a></p>
-						<br>
-					</section>
-					<section>
-						<h3>Update.py</h3>
-						<p>get id first then populate to your dropdown</p>
-						<i>Method Populate</i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def setComboBox(self):
-						        result = dbHandler.getAllData()
-						        for row in result:
-						            self.usersCombo.insertItem (1, str(row[0]))
-						</code></pre>
-					</section>
-					<section>
-						<h3>Handler.py</h3>
-						<p>up some method to update data , send to own server</p>
-						<i>Method Update</i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def updateData(self,idk,user,email):
-						        query = QSqlQuery()
-						        query.prepare("UPDATE user SET nama = :nama , email = :email where id=:idu")
-						        query.bindValue(":nama", user)
-						        query.bindValue(":email", email)
-						        query.bindValue(":id", idk)
-						        query.exec_()
-						</code></pre>
-					</section>
-					<section>
-						<h3>Handler.py</h3>
-						<i>Method Get By Id</i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def getById(self,idk):
-						        query = QSqlQuery()
-						        query.prepare("SELECT nama, email FROM user where id = :id")
-						        query.bindValue(":id", idk)
-						        query.exec_()
-						        result = []
-						        while query.next():
-						            name = query.value(0)
-						            email = query.value(1)
-						            result.append(name)
-						            result.append(email)
-						        return result
-						</code></pre>
-					</section>
-					<section>
-						<h3>Update.py</h3>
-						<p>Connect ur own buttton listener, to change the field data by id</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							result = dbHandler.getById(self.usersCombo.currentText())
-									self.txtUsername.setText(result[0])
-									self.txtEmail.setText(result[1])
-						</code></pre>
-						<p>take 1 paramater from the combos. Cheers</p>
-					</section>
-					<section>
-						<h3>Update.py</h3>
-						<p>Connect ur own buttton listener, send to method, let it handler do their job</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def doUpdate(self):
-								dbHandler.updateData(self.usersCombo.currentText(),self.txtUsername.text(),self.txtEmail.text())
-						</code></pre>
-						<p>take 3 paramater from the textfield and combos. Cheers</p>
-						<a href="#">In : need more nice view, just cek empty() and block your code with Try catch, do somedialog</a>
-					</section>
-					<section data-background="css/gf3.gif">
-						<h3>... and Cek ur own Server?</h3>
-						<h6>..... another data changed?</h6>
-					</section>
-				</section>
-				<!-- Slide 5 9  -->
-				<section data-transition="convex">
-					<section>
-						<h2>Delete is needed</h2>
-						<p>sometimes us need delete another data</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h3>Create View First</h3>
-						<p>separate to another folder why not? u love simple right?</p>
-						<p>create the <b>delete.py</b></p>
-					</section>
-					<section>
-						<h3>Delete.py</h3>
-						<p>require another module</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							import sys
-							from PySide.QtGui import *
-							from PySide.QtCore import *
-							from connect import Connection
-							from handler import dbHandler
-							dbHandler = dbHandler()
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Delete.py</h3>
-						<p>set ur ui Unit</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def __init__(self,parent=None):
-						        super(Delete, self).__init__(parent)
-						        self.initUI()
+						<!-- Panel -->
 
-						  def initUI(self):
-						        formLayout = QFormLayout(self)
-						        self.labelId = QLabel("Pilih ID")
-						        self.usersCombo = QComboBox(self)
-						        self.setComboBox()
-						        self.prosBtn = QPushButton('Delete', self)
-						        self.prosBtn.clicked.connect(self.doDelete)
-						        formLayout.addRow(self.labelId, self.usersCombo)
-						        formLayout.addRow("",self.prosBtn)
-						</code></pre>
-						<br>
-					</section>
-					<section>
-						<h3>Delete.py</h3>
-						<p>get id first then populate to your dropdown</p>
-						<i>Method Populate</i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def setComboBox(self):
-						        result = dbHandler.getAllData()
-						        for row in result:
-						            self.usersCombo.insertItem (1, str(row[0]))
-						</code></pre>
-					</section>
-					<section>
-						<h3>Handler.py</h3>
-						<p>up some method to delete data from ur own server</p>
-						<i>Method Delete</i>
-						<pre><code class="hljs" data-trim contenteditable>
-							def deleteData(self, idu):
-						        query = QSqlQuery()
-						        query.prepare("DELETE FROM user WHERE id = ?");
-						        query.addBindValue(idu);
-						        query.exec_()
-						</code></pre>
-					</section>
-					<section>
-						<h3>Delete.py</h3>
-						<p>Connect ur own buttton listener, send to method, let it handler do their job</p>
-						<pre><code class="hljs" data-trim contenteditable>
-							def doDelete(self):
-								dbHandler.deleteData(self.usersCombo.currentText())
-						</code></pre>
-						<p>take 1 paramater from the combos. Cheers</p>
-						<a href="#">In : need more nice view, just cek empty() and block your code with Try catch, do somedialog</a>
-					</section>
-					<section data-background="css/gf5.gif">
-						<h3>... and Cek ur own Server?</h3>
-						<h6>..... another data has gone?</h6>
-					</section>
-				</section>
-				<section style="text-align: left;" data-background="css/gf4.gif">
-					<h2>Its Over Man !!!</h2>
-				</section>
-				<section style="text-align: left;" data-background="css/gf4.gif">
-					<h1>THE END</h1>
-					<p>
-						- Best Regard <a target="_blank" href="https://twitter.com/fian_io">@Fian_io</a> <br>
-					</p>
-				</section>
-				</section>
+
+						<!-- Copyright -->
+							<div class="copyright">&copy; Fian Eka. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
+
+					</div>
+
 			</div>
-		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
